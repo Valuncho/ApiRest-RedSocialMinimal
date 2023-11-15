@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 
 @Service
 public class PostMapper {
-    @Autowired
+    //@Autowired
     private PostMapper postMapper;
-    @Autowired
+    //@Autowired
     private UserService userService;
     public Post postRequestToPost(PostRequest postRequest) {
         Post post = new Post();
