@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long PostId;
+    private Long postId;
     private String content;
     private LocalDateTime publicationDate;
     @ManyToOne // se utiliza para definir y mapear relaciones "muchos a uno" funcina como una clave foranea
