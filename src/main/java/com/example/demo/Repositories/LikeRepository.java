@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface LikeRepository extends JpaRepository<Like, Long> {
     boolean existsByUserAndPost(User user, Post post);
-    // El optional es porque puede ser o no vacio y encontrar el me gusta
-    Optional<Like> findByUserAndPost(User user, Post post);
+    // El optional es porque puede ser o no vacio y encontrar el "me gusta
+    //Optional<Like> findByUserAndPost(User user, Post post);
 }

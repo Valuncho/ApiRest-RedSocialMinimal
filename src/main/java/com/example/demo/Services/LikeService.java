@@ -12,12 +12,15 @@ public class LikeService {
     @Autowired
     private LikeRepository likeRepository;
 
-    public void darMeGusta(User user, Post post) {
+    public Like darMeGusta(User user, Post post) {
         if (tieneMeGusta(user, post)){
         Like like = new Like();
         like.setUser(user);
         like.setPost(post);
-        likeRepository.save(like);
+        return likeRepository.save(like);
+        } else {
+            // Use RunTimeException para no tener que personalizar una expecicion
+            throw new RuntimeException("El usuario ya le dio Me gusta");
         }
     }
     private boolean tieneMeGusta(User user, Post post){

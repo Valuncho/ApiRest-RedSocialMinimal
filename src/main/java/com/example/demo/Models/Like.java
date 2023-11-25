@@ -6,17 +6,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
+// te odio entity
+@Entity
 @Table(name = "likes")
-
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long likeId;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
     @ManyToOne
-    @JoinColumn(name = "postId")
+    @JoinColumn(name = "postId", nullable = false)
     private Post post;
 }
