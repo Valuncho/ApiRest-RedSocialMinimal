@@ -24,5 +24,10 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Like> likes;
+
+    @PrePersist
+    protected void onCreate(){
+        publicationDate = LocalDateTime.now();
+    }
 }
 

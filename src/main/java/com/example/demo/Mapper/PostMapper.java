@@ -13,13 +13,11 @@ import java.time.LocalDateTime;
 @Service
 public class PostMapper {
     //@Autowired
-    private PostMapper postMapper;
-    //@Autowired
     private UserService userService;
     public Post postRequestToPost(PostRequest postRequest) {
         Post post = new Post();
         post.setContent(postRequest.getContent());
-        post.setPublicationDate(LocalDateTime.now());
+        // post.setPublicationDate(LocalDateTime.now());
         User author = userService.getById(postRequest.getAuthorId());
         post.setAuthor(author);
         return post;
