@@ -21,6 +21,7 @@ public class PostService {
 
     public Post createPost(PostRequest postRequest) {
         Post post = postMapper.postRequestToPost(postRequest);
+
         return postRepository.save(post);
     }
 
@@ -31,7 +32,7 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-    public PostResponse getPostById(Long postId) {
+    public PostResponse getPostById(int postId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found with id: " + postId));
         return postMapper.postToPostResponse(post);

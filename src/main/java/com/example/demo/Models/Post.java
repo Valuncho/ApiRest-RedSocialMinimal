@@ -15,7 +15,7 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long postId;
+    private int postId;
     private String content;
     private LocalDateTime publicationDate;
 

@@ -12,15 +12,13 @@ import java.time.LocalDateTime;
 
 @Service
 public class PostMapper {
-    //@Autowired
-    private PostMapper postMapper;
-    //@Autowired
+    @Autowired
     private UserService userService;
     public Post postRequestToPost(PostRequest postRequest) {
         Post post = new Post();
         post.setContent(postRequest.getContent());
         post.setPublicationDate(LocalDateTime.now());
-        User author = userService.getById(postRequest.getAuthorId());
+        User author = this.userService.findUserById(postRequest.getAuthorId());
         post.setAuthor(author);
         return post;
     }
@@ -29,7 +27,7 @@ public class PostMapper {
         postResponse.setPostId(post.getPostId());
         postResponse.setContent(post.getContent());
         postResponse.setPublicationDate(post.getPublicationDate());
-        postResponse.setAuthorId(Math.toIntExact(post.getAuthor().getUserId())); // convierte de long a int
+        postResponse.setAuthorId(post.getAuthor().getUserId());
 
         return postResponse;
     }

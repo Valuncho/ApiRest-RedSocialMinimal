@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 
 public class LikeResponse {
-    private long likeId;
+    private int likeId;
 }

@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 
 public class LikeRequest {
-    private long userId;
-    private long postId;
+    private Integer userId;
+    private Integer postId;
 }
