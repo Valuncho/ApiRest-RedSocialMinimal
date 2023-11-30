@@ -15,7 +15,7 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long postId;
+    private int postId;
     private String content;
     private LocalDateTime publicationDate;
 
@@ -24,10 +24,5 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Like> likes;
-
-    @PrePersist
-    protected void onCreate(){
-        publicationDate = LocalDateTime.now();
-    }
 }
 

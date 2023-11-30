@@ -29,7 +29,7 @@ public class UserController {
 
     // Endpoint para obtener un usuario por su ID (GET)
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
+    public ResponseEntity<User> getUserById(@PathVariable int userId) {
         User user = userService.findUserById(userId);
         if (user != null) {
             return new ResponseEntity<>(user, HttpStatus.OK);
@@ -40,7 +40,7 @@ public class UserController {
 
     // Endpoint para actualizar un usuario existente
     @PutMapping("/update/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody UserRequest userRequest) {
+    public ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody UserRequest userRequest) {
         User existingUser = userService.findUserById(userId);
         if (existingUser != null) {
             existingUser.setUserName(userRequest.getUserName());
@@ -55,7 +55,7 @@ public class UserController {
 
     // Endpoint para eliminar un usuario por su Id
     @DeleteMapping("/delete/{userId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long userId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable int userId) {
         User user = userService.findUserById(userId);
         if (user != null) {
             userService.deleteUser(userId);
